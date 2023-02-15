@@ -1,9 +1,9 @@
 import { Text, View } from "react-native";
 
-export default function EditScreenInfo() {
+export default function StatusScreen() {
   return (
     <View>
-      <Text>Hello there!</Text>
+      <Text>Groups</Text>
     </View>
   );
 }
