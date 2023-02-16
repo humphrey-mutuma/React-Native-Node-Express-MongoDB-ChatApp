@@ -30,7 +30,8 @@ export default function TopTabNavigator() {
     <TopTab.Navigator
       initialRouteName="Chats"
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarActiveTintColor: "green",
+        // swipeEnabled: { true}
       }}
     >
       <TopTab.Screen

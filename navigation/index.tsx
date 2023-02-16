@@ -26,7 +26,7 @@ function RootNavigator() {
       <Stack.Screen
         name="Root"
         component={TopTabsNavigator}
-        options={{ headerShown: false }}
+        options={{ headerShown: true }}
       />
       <Stack.Screen
         name="NotFound"

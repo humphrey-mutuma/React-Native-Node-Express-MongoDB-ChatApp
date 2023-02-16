@@ -27,3 +27,10 @@ export type RootTabParamList = {
   TabOne: undefined;
   TabTwo: undefined;
 };
+
+export interface ChatProps {
+  message: string;
+  recipientName: string;
+  recipientImage: string;
+  source?: string;
+}
