@@ -8,7 +8,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 import * as React from "react";
-import { Pressable } from "react-native";
+import { Pressable, View } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -30,33 +30,15 @@ export default function TopTabNavigator() {
     <TopTab.Navigator
       initialRouteName="Chats"
       screenOptions={{
-        tabBarActiveTintColor: "green",
-        // swipeEnabled: { true}
+        tabBarActiveTintColor: "darkgreen",
+        tabBarStyle: { backgroundColor: " #5A5A5c" },
       }}
     >
       <TopTab.Screen
-        name="TabOne"
+        name="Chats"
         component={ChatsScreen}
         options={({ navigation }) => ({
           title: "Chats",
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="music-note" color="white" size={26} />
-          ),
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("Modal")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            >
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
         })}
       />
       <TopTab.Screen
@@ -64,9 +46,6 @@ export default function TopTabNavigator() {
         component={GroupsScreen}
         options={{
           title: "Groups",
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="music-note" color="white" size={26} />
-          ),
         }}
       />
       <TopTab.Screen
@@ -74,9 +53,6 @@ export default function TopTabNavigator() {
         component={StatusScreen}
         options={{
           title: "Status",
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="music-note" color="white" size={26} />
-          ),
         }}
       />
       <TopTab.Screen
@@ -84,9 +60,6 @@ export default function TopTabNavigator() {
         component={CallsScreen}
         options={{
           title: "Calls",
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="music-note" color="white" size={26} />
-          ),
         }}
       />
     </TopTab.Navigator>

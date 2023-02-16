@@ -1,17 +1,22 @@
-import { View, Text, Image, ImageSourcePropType } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { ChatProps } from "../types";
+import { useNavigation } from "@react-navigation/native";
 
 const ChatsCard = ({ recipientImage, message, recipientName }: ChatProps) => {
+  const navigation = useNavigation();
   return (
-    <View className="w-full  p-2 flex-1 flex-row items-center justify-between">
+    <TouchableOpacity
+      onPress={() => navigation.navigate("Messages")}
+      className="w-full  p-2 flex-1 flex-row items-center justify-between"
+    >
       <View className="w-full flex-1 flex-row">
         <Image
-          className="w-10 h-10 rounded-full"
+          className="w-12 h-12 rounded-full"
           source={{ uri: `${recipientImage}` }}
         />
         <View className="pl-4 ">
-          <Text className="text-white">{recipientName}</Text>
+          <Text className="text-white font-semibold">{recipientName}</Text>
           <Text className="text-gray-400">{message}</Text>
         </View>
       </View>
@@ -25,7 +30,7 @@ const ChatsCard = ({ recipientImage, message, recipientName }: ChatProps) => {
           </Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

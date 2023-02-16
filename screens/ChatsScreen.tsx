@@ -78,7 +78,7 @@ const chats = [
 
 export default function ChatsScreen() {
   return (
-    <View className="bg-black">
+    <View className="bg-black ">
       <ScrollView className="">
         {chats.map((chat) => (
           <ChatsCard
