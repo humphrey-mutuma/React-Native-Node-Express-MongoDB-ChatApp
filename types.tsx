@@ -35,3 +35,8 @@ export interface ChatProps {
   recipientImage: string;
   source?: string;
 }
+
+export interface UserProps {
+  name: string;
+  image: string;
+}

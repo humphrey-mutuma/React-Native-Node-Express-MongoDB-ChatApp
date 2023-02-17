@@ -1,9 +1,12 @@
-import { Text, View } from "react-native";
+import { View, Text } from 'react-native'
+import React from 'react'
 
-export default function CallsScreen() {
+const CallsScreen = () => {
   return (
     <View>
-      <Text className="text-red-700 text-4xl">Tab One</Text>
+      <Text>CallsScreen</Text>
     </View>
-  );
+  )
 }
+
+export default CallsScreen

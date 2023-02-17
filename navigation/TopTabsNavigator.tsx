@@ -3,65 +3,100 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome } from "@expo/vector-icons";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 import * as React from "react";
-import { Pressable, View } from "react-native";
-
-import Colors from "../constants/Colors";
-import useColorScheme from "../hooks/useColorScheme";
 import ChatsScreen from "../screens/ChatsScreen";
-import GroupsScreen from "../screens/GroupsScreen";
-import StatusScreen from "../screens/StatusScreen";
+import { TouchableOpacity } from "react-native";
 import CallsScreen from "../screens/CallsScreen";
+import VideoCallScreen from "../screens/VideoCallScreen";
+import SettingsScreen from "../screens/SettingsScreen";
 
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
  * https://reactnavigation.org/docs/bottom-tab-navigator
  */
-const TopTab = createMaterialTopTabNavigator();
+const BottomTab = createBottomTabNavigator();
 
 export default function TopTabNavigator() {
-  const colorScheme = useColorScheme();
-
   return (
-    <TopTab.Navigator
+    <BottomTab.Navigator
       initialRouteName="Chats"
+      sceneContainerStyle={{}}
       screenOptions={{
-        tabBarActiveTintColor: "darkgreen",
-        tabBarStyle: { backgroundColor: " #5A5A5c" },
+        headerShown: false,
+        tabBarShowLabel: false,
+
+        // tabBarActiveTintColor: "darkgreen",
+        // tabBarStyle: { backgroundColor: " #5A5A5c" },
       }}
     >
-      <TopTab.Screen
+      <BottomTab.Screen
         name="Chats"
         component={ChatsScreen}
         options={({ navigation }) => ({
-          title: "Chats",
+          tabBarIcon: () => (
+            <TouchableOpacity>
+              <MaterialCommunityIcons
+                style={{ marginHorizontal: 5 }}
+                color="black"
+                name="chat-processing-outline"
+                size={25}
+              />
+            </TouchableOpacity>
+          ),
         })}
       />
-      <TopTab.Screen
-        name="Groups"
-        component={GroupsScreen}
-        options={{
-          title: "Groups",
-        }}
-      />
-      <TopTab.Screen
-        name="Status"
-        component={StatusScreen}
-        options={{
-          title: "Status",
-        }}
-      />
-      <TopTab.Screen
+      <BottomTab.Screen
         name="Calls"
         component={CallsScreen}
         options={{
-          title: "Calls",
+          tabBarIcon: () => (
+            <TouchableOpacity>
+              <Ionicons
+                style={{ marginHorizontal: 5 }}
+                color="black"
+                name="ios-call-outline"
+                size={25}
+              />
+            </TouchableOpacity>
+          ),
         }}
       />
-    </TopTab.Navigator>
+      <BottomTab.Screen
+        name="video call"
+        component={VideoCallScreen}
+        options={{
+          tabBarIcon: () => (
+            <TouchableOpacity>
+              <MaterialCommunityIcons
+                style={{ marginHorizontal: 5 }}
+                color="black"
+                name="camera-plus-outline"
+                size={25}
+              />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{
+          tabBarIcon: () => (
+            <TouchableOpacity>
+              <Ionicons
+                style={{ marginHorizontal: 5 }}
+                color="black"
+                name="settings-outline"
+                size={25}
+              />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+    </BottomTab.Navigator>
   );
 }

@@ -8,7 +8,7 @@ const ChatsCard = ({ recipientImage, message, recipientName }: ChatProps) => {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate("Messages")}
-      className="w-full  p-2 flex-1 flex-row items-center justify-between"
+      className="w-full bg-black my-1 rounded-2xl  p-2 flex-1 flex-row items-center justify-between"
     >
       <View className="w-full flex-1 flex-row">
         <Image
@@ -20,7 +20,7 @@ const ChatsCard = ({ recipientImage, message, recipientName }: ChatProps) => {
           <Text className="text-gray-400">{message}</Text>
         </View>
       </View>
-      <View className="items-center justify-between h-full">
+      <View className="items-center justify-between h-full ">
         <Text className="text-xs text-slate-600">
           {Math.floor(Math.random() * 12)}:{Math.floor(Math.random() * 60)}
         </Text>
