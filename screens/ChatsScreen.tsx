@@ -111,7 +111,7 @@ const users = [
       "https://cdn.pixabay.com/photo/2017/02/04/12/25/man-2037255__340.jpg",
   },
   {
-    name: "Alexii Mutuma",
+    name: "Alei Mutuma",
     userAvatar:
       "https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__340.jpg",
   },
