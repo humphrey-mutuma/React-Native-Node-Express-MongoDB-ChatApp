@@ -1,0 +1,4 @@
+(home)/x == /x
+   grouped routers in expo-router do not create paths
+   In the case above, a grouped router was used to group tabs together,
+   them docs discourage using tabs for root navigation hence the need for grouping

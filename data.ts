@@ -1,74 +1,74 @@
 export const chats = [
   {
-    recipientName: "Alex Mutuma",
+    senderName: "Alex Mutuma",
     message: "Yolooo there",
-    recipientImage:
+    senderImage:
       "https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__340.jpg",
   },
   {
-    recipientName: "Janiie Mellissa",
+    senderName: "Janiie Mellissa",
     message: "hello there",
-    recipientImage:
+    senderImage:
       "https://cdn.pixabay.com/photo/2017/02/04/12/25/man-2037255__340.jpg",
   },
   {
-    recipientName: "Dr Tatus",
+    senderName: "Dr Tatus",
     message: "Wharuuup chief",
-    recipientImage:
+    senderImage:
       "https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__340.jpg",
   },
   {
-    recipientName: "Joe the trader",
+    senderName: "Joe the trader",
     message: "This is craiizy",
-    recipientImage:
+    senderImage:
       "https://cdn.pixabay.com/photo/2017/02/04/12/25/man-2037255__340.jpg",
   },
   {
-    recipientName: "Alexii Mutuma",
+    senderName: "Alexii Mutuma",
     message: "Yolooo there",
-    recipientImage:
+    senderImage:
       "https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__340.jpg",
   },
   {
-    recipientName: "Janet Mellissa",
+    senderName: "Janet Mellissa",
     message: "hello there",
-    recipientImage:
+    senderImage:
       "https://cdn.pixabay.com/photo/2017/02/04/12/25/man-2037255__340.jpg",
   },
   {
-    recipientName: "Mrs Tirus",
+    senderName: "Mrs Tirus",
     message: "Wharuuup chief",
-    recipientImage:
+    senderImage:
       "https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__340.jpg",
   },
   {
-    recipientName: "Josee Dev",
+    senderName: "Josee Dev",
     message: "This is craiizy",
-    recipientImage:
+    senderImage:
       "https://cdn.pixabay.com/photo/2017/02/04/12/25/man-2037255__340.jpg",
   },
   {
-    recipientName: "Ken Mutuma",
+    senderName: "Ken Mutuma",
     message: "Yolooo there",
-    recipientImage:
+    senderImage:
       "https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__340.jpg",
   },
   {
-    recipientName: "Jane Mellissaa",
+    senderName: "Jane Mellissaa",
     message: "hello there",
-    recipientImage:
+    senderImage:
       "https://cdn.pixabay.com/photo/2017/02/04/12/25/man-2037255__340.jpg",
   },
   {
-    recipientName: "Mr Tiruss",
+    senderName: "Mr Tiruss",
     message: "Wharuuup chief",
-    recipientImage:
+    senderImage:
       "https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__340.jpg",
   },
   {
-    recipientName: "Joe  Dev",
+    senderName: "Joe  Dev",
     message: "This is craiizy",
-    recipientImage:
+    senderImage:
       "https://cdn.pixabay.com/photo/2017/02/04/12/25/man-2037255__340.jpg",
   },
 ];

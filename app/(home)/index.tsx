@@ -18,7 +18,7 @@ export default function ChatsScreen() {
   const [number, onChangeNumber] = useState("");
 
   return (
-    <View className="w-full h-screen">
+    <View className="w-full min-h-screen">
       <StatusBar style="light" />
       <LinearGradient colors={["black", "#301934"]} className="flex-1 p-2 ">
         <SafeAreaView>
@@ -60,12 +60,15 @@ export default function ChatsScreen() {
             <Text className="text-white font-bold text-lg m-3 rounded-full bg-purple-900 text-center w-20">
               Recent
             </Text>
+
             {chats.map((chat) => (
               <ChatsCard
-                key={chat.recipientName}
+                key={chat.senderName}
                 message={chat.message}
-                recipientName={chat.recipientName}
-                recipientImage={chat.recipientImage}
+                senderName={chat.senderName}
+                senderImage={chat.senderImage}
+                senderId={chat.senderName}
+                chatId={chat.senderName}
               />
             ))}
           </ScrollView>

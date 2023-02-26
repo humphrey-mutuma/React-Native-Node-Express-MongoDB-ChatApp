@@ -31,9 +31,10 @@ export type RootTabParamList = {
 
 export interface ChatProps {
   message: string;
-  recipientName: string;
-  recipientImage: string;
-  source?: string;
+  senderName: string;
+  senderImage: string;
+  senderId: string;
+  chatId: string;
 }
 
 export interface UserProps {
