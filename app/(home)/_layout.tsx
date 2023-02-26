@@ -51,10 +51,10 @@ export default function AppLayout() {
         name="video"
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons
+            <Ionicons
               style={{ marginHorizontal: 5 }}
               color={color}
-              name="camera-plus-outline"
+              name="videocam-outline"
               size={25}
             />
           ),

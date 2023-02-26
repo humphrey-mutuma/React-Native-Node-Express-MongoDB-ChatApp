@@ -5,6 +5,7 @@ import { useSearchParams } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { SafeAreaView } from "react-native-safe-area-context";
+import AntDesign from "react-native-vector-icons/AntDesign";
 
 export default function User() {
   const { name, image } = useSearchParams();
@@ -16,13 +17,18 @@ export default function User() {
         <SafeAreaView>
           <View className="w-full items-center justify-between flex-row ">
             <Link href="../" className="text-lg text-center text-white">
-              Dismiss
-            </Link>
-            <TouchableOpacity>
               <Ionicons
                 style={{ marginHorizontal: 5 }}
                 color="white"
-                name="ios-filter-outline"
+                name="arrow-back-circle-outline"
+                size={30}
+              />
+            </Link>
+            <TouchableOpacity>
+              <AntDesign
+                style={{ marginHorizontal: 5 }}
+                color="white"
+                name="questioncircleo"
                 size={25}
               />
             </TouchableOpacity>

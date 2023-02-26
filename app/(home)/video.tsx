@@ -25,13 +25,13 @@ export default function Video() {
     >
       <View className="flex-row w-full   items-center justify-evenly mb-20">
         <TouchableOpacity className=" p-2 rounded-full bg-gray-500">
-          <Ionicons style={{}} color="white" name="volume-mute" size={40} />
+          <Ionicons color="white" name="volume-mute" size={40} />
         </TouchableOpacity>
         <TouchableOpacity className=" p-2 rounded-full bg-green-500">
-          <Ionicons style={{}} color="white" name="call" size={40} />
+          <Ionicons color="white" name="call" size={40} />
         </TouchableOpacity>
         <TouchableOpacity className=" p-2 rounded-full bg-red-500">
-          <MaterialIcons style={{}} color="white" name="call-end" size={40} />
+          <MaterialIcons color="white" name="call-end" size={40} />
         </TouchableOpacity>
       </View>
     </ImageBackground>

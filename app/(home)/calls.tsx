@@ -8,7 +8,7 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import AntDesign from "react-native-vector-icons/AntDesign";
 
 export default function Calls() {
   return (
@@ -19,10 +19,10 @@ export default function Calls() {
           <View className="w-full items-center justify-between flex-row ">
             <Text className="text-slate-100 text-2xl">Calls</Text>
             <TouchableOpacity>
-              <Ionicons
+              <AntDesign
                 style={{ marginHorizontal: 5 }}
                 color="white"
-                name="ios-filter-outline"
+                name="questioncircleo"
                 size={25}
               />
             </TouchableOpacity>
