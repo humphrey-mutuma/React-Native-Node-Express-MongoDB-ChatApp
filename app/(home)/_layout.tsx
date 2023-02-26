@@ -1,7 +1,8 @@
 import { Tabs } from "expo-router";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Ionicons from "react-native-vector-icons/Ionicons";
-
+// import { BlurView } from "expo-blur";
+import { View } from "react-native";
 
 export default function AppLayout() {
   return (
@@ -11,9 +12,13 @@ export default function AppLayout() {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
-
-        // tabBarActiveTintColor: "darkgreen",
-        // tabBarStyle: { backgroundColor: " #5A5A5c" },
+        tabBarActiveTintColor: "white",
+        tabBarStyle: {
+          position: "absolute",
+          backgroundColor: "#301964",
+          margin: 10,
+          borderRadius: 25,
+        },
       }}
     >
       <Tabs.Screen

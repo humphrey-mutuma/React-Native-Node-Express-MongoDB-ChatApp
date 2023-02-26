@@ -1,4 +1,5 @@
 import {
+  ImageBackground,
   ScrollView,
   Text,
   TextInput,
@@ -9,33 +10,30 @@ import { LinearGradient } from "expo-linear-gradient";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+
+const image = {
+  uri: "https://cdn.pixabay.com/photo/2016/11/29/06/46/adult-1867889__340.jpg",
+};
 
 export default function Video() {
   return (
-    <View className="w-full h-screen">
-      <StatusBar style="light" />
-      <LinearGradient colors={["black", "#301934"]} className="flex-1 p-2 ">
-        <SafeAreaView>
-          <View className="w-full items-center justify-between flex-row ">
-            <Text className="text-slate-100 text-2xl">Buddies</Text>
-            <TouchableOpacity>
-              <Ionicons
-                style={{ marginHorizontal: 5 }}
-                color="white"
-                name="ios-filter-outline"
-                size={25}
-              />
-            </TouchableOpacity>
-          </View>
-
-          {/* chats */}
-          <ScrollView showsVerticalScrollIndicator={false}>
-            <Text className="text-white font-bold text-lg m-3 rounded-full bg-purple-900 text-center w-20">
-              Video
-            </Text>
-          </ScrollView>
-        </SafeAreaView>
-      </LinearGradient>
-    </View>
+    <ImageBackground
+      source={image}
+      resizeMode="cover"
+      className="h-screen flex-1 items-center justify-end "
+    >
+      <View className="flex-row w-full   items-center justify-evenly mb-20">
+        <TouchableOpacity className=" p-2 rounded-full bg-gray-500">
+          <Ionicons style={{}} color="white" name="volume-mute" size={40} />
+        </TouchableOpacity>
+        <TouchableOpacity className=" p-2 rounded-full bg-green-500">
+          <Ionicons style={{}} color="white" name="call" size={40} />
+        </TouchableOpacity>
+        <TouchableOpacity className=" p-2 rounded-full bg-red-500">
+          <MaterialIcons style={{}} color="white" name="call-end" size={40} />
+        </TouchableOpacity>
+      </View>
+    </ImageBackground>
   );
 }

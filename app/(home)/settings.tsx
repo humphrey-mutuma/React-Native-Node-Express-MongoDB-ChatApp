@@ -17,7 +17,7 @@ export default function Settings() {
       <LinearGradient colors={["black", "#301934"]} className="flex-1 p-2 ">
         <SafeAreaView>
           <View className="w-full items-center justify-between flex-row ">
-            <Text className="text-slate-100 text-2xl">Buddies</Text>
+            <Text className="text-slate-100 text-2xl">Setting</Text>
             <TouchableOpacity>
               <Ionicons
                 style={{ marginHorizontal: 5 }}
@@ -30,9 +30,7 @@ export default function Settings() {
 
           {/* chats */}
           <ScrollView showsVerticalScrollIndicator={false}>
-            <Text className="text-white font-bold text-lg m-3 rounded-full bg-purple-900 text-center w-20">
-              Settings
-            </Text>
+           {/* content */}
           </ScrollView>
         </SafeAreaView>
       </LinearGradient>
