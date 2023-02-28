@@ -16,7 +16,7 @@ import errorHandler from "./middleware/error.middleware.js";
 import UsersRoute from "./routes/user.route.js";
 import ChatsRoomRoute from "./routes/chatRoom.route.js";
 import MessagesRoute from "./routes/message.route.js";
- 
+
 //
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -36,7 +36,7 @@ app.use(cookieParser());
 
 // routes
 app.use("/api/users", UsersRoute);
-app.use("/api/chats", ChatsRoomRoute);
+app.use("/api/chatRooms", ChatsRoomRoute);
 app.use("/api/messages", MessagesRoute);
 
 // error middleware
