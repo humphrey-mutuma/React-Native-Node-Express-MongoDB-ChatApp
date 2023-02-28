@@ -10,10 +10,13 @@ dotenv.config();
 
 import cors from "cors";
 import dbConnect from "./config/dbConnect.js";
-import errorHandler from "./middleware/errorMiddleware.js";
-// import router
-import chatsRoute from "./routes/chat.route.js";
-
+// import error middleware
+import errorHandler from "./middleware/error.middleware.js";
+// import routes
+import UsersRoute from "./routes/user.route.js";
+import ChatsRoomRoute from "./routes/chatRoom.route.js";
+import MessagesRoute from "./routes/message.route.js";
+ 
 //
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,7 +35,9 @@ app.use(cookieParser());
 // app.use(static(join(__dirname, "public")));
 
 // routes
-app.use("/api/chats", chatsRoute);
+app.use("/api/users", UsersRoute);
+app.use("/api/chats", ChatsRoomRoute);
+app.use("/api/messages", MessagesRoute);
 
 // error middleware
 app.use(errorHandler);

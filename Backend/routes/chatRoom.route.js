@@ -5,7 +5,7 @@ import {
   getUserProfile,
   getAllUsers,
   deleteUser,
-} from "../controllers/user.controller";
+} from "../controllers/chatRoom.controller";
 const router = Router();
 
 router.route("/register").post(registerUser);
