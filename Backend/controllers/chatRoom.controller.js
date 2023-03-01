@@ -3,7 +3,7 @@ import ChatRoom from "../models/chatRoom.model.js";
 
 // @desc create a char room
 // @route POST /api/chatRoom
-// @access Private 
+// @access Private
 
 const createAChatRoom = asyncHandler(async (req, res) => {
   // destructure message & writer
@@ -55,6 +55,9 @@ const getAChatRoom = asyncHandler(async (req, res) => {
 // @route DELETE  /api/chatRoom/:id
 // @access private
 const deleteAChatRoom = asyncHandler(async (req, res) => {
+  // chatRoomCreator will be the id of the currently signed in user
+  // this can be sent from the from end or even better extracted from the Bearer token,
+  //  which can be set up in the middleware
   const { chatRoomCreator } = req.body;
   // fetch chatRoom to delete
   const chat_room = await ChatRoom.findOne(

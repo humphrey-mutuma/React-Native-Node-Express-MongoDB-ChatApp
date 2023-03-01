@@ -19,16 +19,15 @@ const createAMessage = asyncHandler(async (req, res) => {
     ChatRoom.updateOne(
       { _id: messageChatRoom },
       {
-        $push: { messages: newMessage._id },
+        $push: { chats: newMessage._id },
       },
       { upsert: false, new: true, runValidators: true },
       (err, chat_room) => {
         if (err) {
-          // console.log("liked ", err);
           return res.status(400).json({ success: false });
         }
         // return the new message created
-        return res.status(200).json({ data: newMessage });
+        return res.status(200).json({ data: newMessage, chat_room: chat_room });
       }
     );
   } else {
@@ -63,7 +62,11 @@ const deleteMessage = asyncHandler(async (req, res) => {
   }
 
   // fetch message to delete and return only the _id
-  const message_to_delete = await Message.findById(req.params.id, "_id").lean();
+  const message_to_delete = await Message.findById(
+    req.params.id,
+    "messageWriter -_id"
+  ).lean();
+
   // verify ownership
   if (messageWriter == message_to_delete.messageWriter.toString()) {
     const deleted_message = await Message.deleteOne({ _id: req.params.id });

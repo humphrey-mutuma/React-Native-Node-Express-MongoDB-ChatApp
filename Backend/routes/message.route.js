@@ -7,6 +7,6 @@ import {
 const router = Router();
 
 router.route("/").post(createAMessage);
-router.route("/:messageId").get(getAMessage).delete(deleteMessage);
+router.route("/:id").get(getAMessage).delete(deleteMessage);
 
 export default router;

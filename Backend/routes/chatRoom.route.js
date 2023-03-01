@@ -8,6 +8,6 @@ import {
 const router = Router();
 
 router.route("/").get(getAllChatRooms).post(createAChatRoom);
-router.route("/:chatRoomId").get(getAChatRoom).delete(deleteAChatRoom);
+router.route("/:id").get(getAChatRoom).delete(deleteAChatRoom);
 
 export default router;
