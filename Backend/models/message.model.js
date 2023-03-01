@@ -4,7 +4,7 @@ import { Schema, model } from "mongoose";
 const messageSchema = new Schema(
   {
     messageWriter: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       required: true,
       ref: "User",
     },

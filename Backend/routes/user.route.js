@@ -5,7 +5,7 @@ import {
   getUserProfile,
   getAllUsers,
   deleteUser,
-} from "../controllers/user.controller";
+} from "../controllers/user.controller.js";
 const router = Router();
 
 router.route("/register").post(registerUser);

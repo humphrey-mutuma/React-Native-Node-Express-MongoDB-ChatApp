@@ -4,7 +4,7 @@ import { Schema, model } from "mongoose";
 const chatRoomSchema = new Schema(
   {
     chatRoomCreator: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       required: true,
       ref: "User",
     },
@@ -15,7 +15,7 @@ const chatRoomSchema = new Schema(
     chats: [
       //array of messages in a chatRoom
       {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "Message",
       },
     ],
