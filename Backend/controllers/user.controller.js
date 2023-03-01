@@ -31,20 +31,19 @@ const registerUser = asyncHandler(async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   // register a user
-  const newUser = await User.create({
-    username,
-    image,
-    hashedPassword,
-  });
-  // return the newly created user
-  if (newUser) {
+  try {
+    const newUser = await User.create({
+      username,
+      image,
+      password: hashedPassword,
+    });
     return res.status(201).json({
       id: newUser._id,
       username: newUser.username,
       image: newUser.image,
       token: generateToken(newUser._id),
     });
-  } else {
+  } catch (error) {
     return res
       .status(400)
       .json({ message: "Something went wrong! Try again later" });
@@ -82,14 +81,12 @@ const loginUser = asyncHandler(async (req, res) => {
       token: generateToken(user._id),
     });
   } else {
-    return res
-      .status(401)
-      .json({ message: "You are not authorized!" });
+    return res.status(401).json({ message: "You are not authorized!" });
   }
 });
 
 // @desc get a users profile
-// @route GET /api/users/user
+// @route GET /api/users/:id
 // @access Private
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id, "-password").lean();
@@ -120,6 +117,8 @@ const getAllUsers = asyncHandler(async (req, res) => {
 // @route DELETE  /api/users/:id
 // @access private
 const deleteUser = asyncHandler(async (req, res) => {
+  
+  // NB: verify Bearer token sent here before deleting a user
   const user = await User.deleteOne({ _id: req.user.id });
   if (user) {
     res.status(200).json({
