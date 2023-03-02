@@ -21,18 +21,20 @@ export function UserWrapper({ children }) {
   };
   useEffect(() => {
     getToken();
-    axios
-      .get(`${process.env.REACT_APP_SERVER_ROOT_URL}/api/users`, {
-        headers: {
-          Authorization: `Bearer ${bearerToken}`,
-        },
-      })
-      .then((res) => {
-        setUserData(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (bearerToken !== null) {
+      axios
+        .get(`${process.env.REACT_APP_SERVER_ROOT_URL}/api/users`, {
+          headers: {
+            Authorization: `Bearer ${bearerToken}`,
+          },
+        })
+        .then((res) => {
+          setUserData(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }, []);
 
   return (
