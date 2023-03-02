@@ -9,13 +9,38 @@ import { LinearGradient } from "expo-linear-gradient";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { chats, users } from "../../data";
 import UsersAvatar from "../../components/UsersAvatar";
 import ChatsCard from "../../components/ChatsCard";
+import axios from "axios";
 
 export default function ChatsScreen() {
   const [number, onChangeNumber] = useState("");
+  const [users, setUsers] = useState([]);
+  const [chatRooms, setChatRooms] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const [users_data, chat_rooms_data] = await axios.all([
+  //       axios.get(`${process.env.REACT_APP_SERVER_ROOT_URL}/api/users`),
+  //       axios.get(`${process.env.REACT_APP_SERVER_ROOT_URL}/api/chatRooms`),
+  //     ]);
+  //     setUsers(users_data.data);
+  //     setChatRooms(chat_rooms_data.data);
+  //   };
+  //   fetchData();
+  // }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get("http://localhost:5000/api/users");
+      console.log("xxx",response.data);
+    };
+    fetchData();
+  }, []);
+
+  // console.log(users, chatRooms);
 
   return (
     <View className="w-full min-h-screen">
@@ -61,7 +86,7 @@ export default function ChatsScreen() {
               Recent
             </Text>
 
-            {chats.map((chat) => (
+            {chatRooms.map((chat) => (
               <ChatsCard
                 key={chat.senderName}
                 message={chat.message}

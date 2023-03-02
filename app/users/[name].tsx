@@ -6,10 +6,23 @@ import { LinearGradient } from "expo-linear-gradient";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import { useEffect } from "react";
+import axios from "axios";
 
 export default function User() {
   const { name, image } = useSearchParams();
 
+  // fetch chatRooms
+  // useEffect(() => {
+  //   axios
+  //     .get(`${process.env.REACT_APP_SERVER_ROOT_URL}/api/users/user`)
+  //     .then((res) => {
+  //       setUser(res.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
   return (
     <SafeAreaView className="w-full h-screen  rounded-t-lg overflow-hidden">
       <StatusBar style="light" />

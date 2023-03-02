@@ -37,6 +37,7 @@ app.use(cookieParser());
 // routes
 app.use("/api/users", UsersRoute);
 app.use("/api/chatRooms", ChatsRoomRoute);
+
 app.use("/api/messages", MessagesRoute);
 
 // error middleware
