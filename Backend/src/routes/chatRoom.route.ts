@@ -4,7 +4,7 @@ import {
   getAChatRoom,
   deleteAChatRoom,
   createAChatRoom,
-} from "../controllers/chatRoom.controller.js";
+} from "../controllers/chatRoom.controller";
 const router = Router();
 
 router.route("/").get(getAllChatRooms).post(createAChatRoom);

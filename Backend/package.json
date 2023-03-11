@@ -2,12 +2,11 @@
   "name": "backend",
   "version": "0.0.1",
   "private": false,
-  "main": "app.js",
+  "main": "index.js",
   "proxy": "http//:localhost:5000",
-  "type": "module",
   "scripts": {
-    "start": "nodemon app.js",
-    "dev": "nodemon app.js",
+    "start": "nodemon",
+    "dev": "nodemon",
     "client": "npx expo start"
   },
   "dependencies": {
@@ -27,7 +26,17 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/http-errors": "^2.0.1",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^18.13.0",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
   },
   "author": "Humphrey Mutuma",
   "license": "MIT"

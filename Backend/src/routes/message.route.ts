@@ -3,7 +3,7 @@ import {
   createAMessage,
   getAMessage,
   deleteMessage,
-} from "../controllers/message.controller.js";
+} from "../controllers/message.controller";
 const router = Router();
 
 router.route("/").post(createAMessage);

@@ -1,12 +1,12 @@
-import asyncHandler from "express-async-handler";
-import Message from "../models/message.model.js";
-import ChatRoom from "../models/chatRoom.model.js";
+import Message from "../models/message.model";
+import ChatRoom from "../models/chatRoom.model";
+import { Request, Response } from "express";
 
 // @desc create a message
 // @route POST /api/messages
 // @access Private
 
-const createAMessage = asyncHandler(async (req, res) => {
+export const createAMessage = async (req: Request, res: Response) => {
   // destructure message & writer
   const { message, messageWriter, messageChatRoom } = req.body;
   if (!message || !messageWriter || !messageChatRoom) {
@@ -35,13 +35,13 @@ const createAMessage = asyncHandler(async (req, res) => {
       .status(500)
       .json({ message: "Something went wrong! Try again later" });
   }
-});
+};
 
 // @desc get a particular message
 // @route GET /api/messages/:messageId
 // @access Public
 
-const getAMessage = asyncHandler(async (req, res) => {
+export const getAMessage = async (req: Request, res: Response) => {
   const message = await Message.findById(req.params.id).lean();
   if (message) {
     return res.status(200).json(message);
@@ -50,12 +50,12 @@ const getAMessage = asyncHandler(async (req, res) => {
       .status(400)
       .json({ message: "Something went wrong! Try again later" });
   }
-});
+};
 
 // @desc  delete a message
 // @route DELETE  /api/messages/:id
 // @access private (implement for protected routes in the middleware here)
-const deleteMessage = asyncHandler(async (req, res) => {
+export const deleteMessage = async (req: Request, res: Response) => {
   const { messageWriter } = req.body;
   if (!messageWriter) {
     return res.status(400).json({ message: "Message Writer is required!" });
@@ -78,6 +78,4 @@ const deleteMessage = asyncHandler(async (req, res) => {
   } else {
     return res.status(401).json({ message: "You are not authorized" });
   }
-});
-
-export { createAMessage, getAMessage, deleteMessage };
+};

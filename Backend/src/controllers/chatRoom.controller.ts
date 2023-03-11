@@ -1,11 +1,10 @@
-import asyncHandler from "express-async-handler";
-import ChatRoom from "../models/chatRoom.model.js";
+import { Request, Response } from "express";
+import ChatRoom from "../models/chatRoom.model";
 
 // @desc create a char room
 // @route POST /api/chatRoom
 // @access Private
-
-const createAChatRoom = asyncHandler(async (req, res) => {
+export const createAChatRoom = async (req: Request, res: Response) => {
   // destructure message & writer
   const { chatRoomCreator, name } = req.body;
   if (!chatRoomCreator || !name) {
@@ -20,13 +19,12 @@ const createAChatRoom = asyncHandler(async (req, res) => {
       .status(500)
       .json({ message: "Something went wrong! Try again later" });
   }
-});
+};
 
 // @desc get a chat room
 // @route GET /api/chatsRoom
 // @access Public
-
-const getAllChatRooms = asyncHandler(async (req, res) => {
+export const getAllChatRooms = async (req: Request, res: Response) => {
   const chat_rooms = await ChatRoom.find({}).lean();
   if (chat_rooms) {
     return res.status(200).json(chat_rooms);
@@ -35,12 +33,12 @@ const getAllChatRooms = asyncHandler(async (req, res) => {
       .status(400)
       .json({ message: "Something went wrong! Try again later" });
   }
-});
+};
 
 // @desc get a chat room
 // @route GET /api/chatRoom/:id
 // @access public
-const getAChatRoom = asyncHandler(async (req, res) => {
+export const getAChatRoom = async (req: Request, res: Response) => {
   const chat_room = await ChatRoom.findById(req.params.id).lean();
   if (chat_room) {
     return res.status(200).json(chat_room);
@@ -49,12 +47,12 @@ const getAChatRoom = asyncHandler(async (req, res) => {
       .status(400)
       .json({ message: "Something went wrong! Try again later" });
   }
-});
+};
 
 // @desc  delete a chat room
 // @route DELETE  /api/chatRoom/:id
 // @access private
-const deleteAChatRoom = asyncHandler(async (req, res) => {
+export const deleteAChatRoom = async (req: Request, res: Response) => {
   // chatRoomCreator will be the id of the currently signed in user
   // this can be sent from the from end or even better extracted from the Bearer token,
   //  which can be set up in the middleware
@@ -79,6 +77,4 @@ const deleteAChatRoom = asyncHandler(async (req, res) => {
       message: "You are not authorized!",
     });
   }
-});
-
-export { getAllChatRooms, getAChatRoom, deleteAChatRoom, createAChatRoom };
+};

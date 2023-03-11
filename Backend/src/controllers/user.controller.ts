@@ -1,13 +1,14 @@
-import asyncHandler from "express-async-handler";
-import User from "../models/user.model.js";
+import User from "../models/user.model";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
+import { Request, Response } from "express";
+import mongoose from "mongoose";
 
 // @desc register a user
 // @route POST /api/users
 // @access Public
 
-const registerUser = asyncHandler(async (req, res) => {
+export const registerUser = async (req: Request, res: Response) => {
   const { username, image, password } = req.body;
 
   // check if there is a username
@@ -48,12 +49,12 @@ const registerUser = asyncHandler(async (req, res) => {
       .status(400)
       .json({ message: "Something went wrong! Try again later" });
   }
-});
+};
 
 // @desc login a user
 // @route POST /api/users/login
 // @access Public
-const loginUser = asyncHandler(async (req, res) => {
+export const loginUser = async (req: Request, res: Response) => {
   const { username, password } = req.body;
 
   // check if there is a username
@@ -83,12 +84,12 @@ const loginUser = asyncHandler(async (req, res) => {
   } else {
     return res.status(401).json({ message: "You are not authorized!" });
   }
-});
+};
 
 // @desc get a users profile
 // @route GET /api/users/:id
 // @access Private
-const getUserProfile = asyncHandler(async (req, res) => {
+export const getUserProfile = async (req: Request, res: Response) => {
   const user = await User.findById(req.params.id, "-password").lean();
   if (user) {
     return res.status(200).json(user);
@@ -97,12 +98,12 @@ const getUserProfile = asyncHandler(async (req, res) => {
       .status(400)
       .json({ message: "Something went wrong! Try again later" });
   }
-});
+};
 
 // @desc get all users
 // @route GET /api/users
 // @access public
-const getAllUsers = asyncHandler(async (req, res) => {
+export const getAllUsers = async (req: Request, res: Response) => {
   const users = await User.find({}, "-password").lean();
   if (users) {
     return res.status(200).json(users);
@@ -111,27 +112,24 @@ const getAllUsers = asyncHandler(async (req, res) => {
       .status(400)
       .json({ message: "Something went wrong! Try again later" });
   }
-});
+};
 
 // @desc  delete a user
 // @route DELETE  /api/users/:id
 // @access private
-const deleteUser = asyncHandler(async (req, res) => {
-  
+export const deleteUser = async (req: Request, res: Response) => {
   // NB: verify Bearer token sent here before deleting a user
-  const user = await User.deleteOne({ _id: req.user.id });
+  const user = await User.deleteOne({ _id: req.params.id });
   if (user) {
     res.status(200).json({
       success: true,
     });
   }
-});
+};
 
 // Generate a JWT that expires after 30 days
-const generateToken = (id) => {
+const generateToken = (id: mongoose.Types.ObjectId) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: "30d",
   });
 };
-
-export { registerUser, loginUser, getUserProfile, getAllUsers, deleteUser };

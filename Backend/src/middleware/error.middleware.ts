@@ -1,7 +1,13 @@
+import { Request, Response, NextFunction } from "express";
 import * as dotenv from "dotenv";
 dotenv.config();
 
-const errorHandler = (err, req, res, next) => {
+const errorHandler = (
+  err: Error,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const statusCode = res.statusCode ? res.statusCode : 500;
 
   res.status(statusCode);
