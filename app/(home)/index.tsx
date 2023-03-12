@@ -15,10 +15,38 @@ import UsersAvatar from "../../components/UsersAvatar";
 import ChatsCard from "../../components/ChatsCard";
 import axios from "axios";
 
+type User = {
+  id: string;
+  username: string;
+  image: string;
+};
+
 export default function ChatsScreen() {
   const [number, onChangeNumber] = useState("");
   const [users, setUsers] = useState([]);
   const [chatRooms, setChatRooms] = useState([]);
+
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState<User[]>([]);
+
+  const getMovies = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/users");
+
+      const data = await response.json();
+      setData(data);
+      console.log("response", data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+  // console.log(data);
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -31,16 +59,6 @@ export default function ChatsScreen() {
   //   };
   //   fetchData();
   // }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get("http://localhost:5000/api/users");
-      console.log("xxx",response.data);
-    };
-    fetchData();
-  }, []);
-
-  // console.log(users, chatRooms);
 
   return (
     <View className="w-full min-h-screen">

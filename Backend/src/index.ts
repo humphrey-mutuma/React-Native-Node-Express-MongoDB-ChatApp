@@ -39,6 +39,7 @@ startServer();
 
 // middleware
 app.use(cors());
+
 app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -81,5 +82,5 @@ app.use(function (req, res, next) {
 });
 
 app.listen(PORT, () =>
-  console.log(`app running on port http://localhost:${PORT}`.blue)
+  console.log(`app running on port http://localhost:${PORT}`)
 );
