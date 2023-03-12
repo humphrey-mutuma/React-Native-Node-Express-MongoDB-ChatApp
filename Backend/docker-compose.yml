@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  chat-app-server:
+    environment:
+      - NODE_ENV=development
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes: -./:/usr/src/app
+
+    container_name: chat-app-server
+    expose:
+      - "5000"
+    ports: -'5000:5000'
+    command: npm run dev
